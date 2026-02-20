@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Carditems = ({ products }) => {
-  console.log(products);
+  // console.log(products);
   const [count, setCount] = useState({});
   const handleAdd = (id) => {
     setCount((prev) => ({ ...prev, [id]: (prev[id] || 1) + 1 }));
