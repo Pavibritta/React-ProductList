@@ -20,7 +20,7 @@ const Home = ({ userName }) => {
     const value = e.target.value;
     setSearchingProduct(value);
 
-    if (value === "") return;
+    if (value === "") return setProductList(productList);
 
     const filteredProducts = productList.filter((product) => {
       return product.name.toLowerCase().includes(value.toLowerCase());
@@ -44,7 +44,7 @@ const Home = ({ userName }) => {
           onChange={(e) => handleFilter(e)}
         />
         {notMatched && (
-          <p className="text-xl text-left bg-linear-to-r from-red-400 to-red-500 bg-clip-text text-transparent mt-5 mb-2">
+          <p className="text-xl  bg-linear-to-r from-red-400 to-red-500 bg-clip-text text-transparent mt-5 mb-2 mx-auto">
             No Results Found
           </p>
         )}
