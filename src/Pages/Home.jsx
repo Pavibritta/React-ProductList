@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Carditems from "../Components/Carditems";
 import handbag from "../assets/Images/bag.avif";
 import coolingGlass from "../assets/Images/cooling glass.avif";
 import shoes from "../assets/Images/shoes.avif";
 import watch from "../assets/Images/watch.avif";
 import waterBottle from "../assets/Images/waterbottle.avif";
+import { AuthContext } from "../Context/AuthContext";
 
-const Home = ({ userName }) => {
+const Home = () => {
   const [searchingProduct, setSearchingProduct] = useState("");
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
+  
   const [productList, setProductList] = useState([
     { id: 1, name: "Handbag", price: 500, image: handbag },
     { id: 2, name: "Cooling Glass", price: 300, image: coolingGlass },
@@ -35,7 +39,7 @@ const Home = ({ userName }) => {
     <>
       <section className=" max-w-8xl mx-auto text-center px-6 py-20 bg-gray-800 text-white relative">
         <h1 className="text-xl font-bold bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mt-10 mb-2">
-          Welcome {userName}!
+          Welcome {currentUser.userName}!
         </h1>
         <input
           type="text"
